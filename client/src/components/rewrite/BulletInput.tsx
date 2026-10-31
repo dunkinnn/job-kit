@@ -54,7 +54,10 @@ export default function BulletInput({ onStart }: Props) {
           <textarea
             id="bullets"
             value={text}
-            onChange={(event) => setText(event.target.value)}
+            onChange={(event) => {
+              setText(event.target.value)
+              setError('')
+            }}
             aria-describedby="bullets-hint bullets-count"
             placeholder={'Made a website for our capstone\nAssisted in the IT office during OJT'}
             className="h-[180px] resize-y rounded-md border border-line bg-desk p-3.5 text-[15px] leading-relaxed placeholder:text-muted focus:border-cobalt focus:outline-2 focus:outline-cobalt/20 md:p-4"

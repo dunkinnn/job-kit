@@ -57,3 +57,27 @@ Verified
 - Server: typecheck; API tests for health, short input, missing field, bad JSON, mock result, rate limit (11th request gets 429), startup without a key; scoring test where fake evidence is downgraded.
 - Client: tsc, eslint, build; browser test at 1440px and 390px for validation, submit, results, focus, and "Check another job". No console errors.
 - Not yet tested: a real OpenAI call (needs your key).
+
+## 2026-10-31: Bullet rewriter
+
+Server
+- New `ai/client.ts`: shared `askAI` for structured OpenAI calls; `AIBusyError` is now handled once in the error handler (503).
+- `ai/analyze.ts` slimmed to use `askAI`; prompts renamed to MATCH_PROMPT and buildMatchInput.
+- New `POST /api/rewrite/questions`: returns why the bullet is weak and up to 3 questions (number or text).
+- New `POST /api/rewrite`: writes one bullet using only the bullet and the answers; missing facts become [blanks].
+- `removeUnsupportedNumbers`: any number in the suggestion that the user did not give (digits or words like "two") becomes [number], and the result says so.
+- Rate limit: 30 rewriter calls per 15 minutes per visitor (two calls per bullet); match stays at 10.
+- Mock mode returns sample questions and a suggestion that includes 150, to show the number check.
+
+Client
+- `/rewrite`: paste up to 5 bullets (list markers stripped) plus an optional job title, or arrive from Match results with the weak bullets.
+- Per bullet: why it is weak, questions (skip any), suggestion card with [blanks] marked, Edit, Use this, Skip this bullet, progress.
+- Summary: before and after per bullet, Copy and Copy all, warning when [blanks] remain.
+- Match results: new "Fix N weak bullets" button; bullets pass through router state, which is cleared from history right away.
+- New shared `ToolPage` wrapper (used by Match check and Rewriter) and `useCopy` hook; `postJson` helper in `lib/api.ts`.
+
+Verified
+- Server typecheck; API tests for questions, short bullet, invented number removed, given number kept, too many answers, 31st call gets 429.
+- Number check cases: 150+ kept or blanked, 1,200 vs 1200, "two weeks" vs 2, invented "3-month" blanked.
+- Client tsc, eslint, build; browser flow at 1440px and 390px: validation, two bullets, edit, use, summary copy all (clipboard checked), Match results to rewriter with history cleared. No console errors.
+- Not yet tested: real OpenAI calls (needs your key).
