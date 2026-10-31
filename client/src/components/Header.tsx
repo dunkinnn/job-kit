@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { NavLink } from 'react-router'
 import ButtonLink from './ButtonLink.tsx'
+import MobileMenu from './MobileMenu.tsx'
 import Wordmark from './Wordmark.tsx'
 
 const NAV = [
@@ -14,46 +15,49 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const menuButton = useRef<HTMLButtonElement>(null)
+
+  // Returns focus to the hamburger so keyboard users land where they started.
+  const closeMenu = useCallback(() => {
+    setOpen(false)
+    menuButton.current?.focus()
+  }, [])
 
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-paper/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1200px] items-center gap-7 py-2 pr-3 pl-5 md:px-6">
-        <Wordmark />
-        <nav aria-label="Main" className="hidden flex-1 gap-1 md:flex">
-          {NAV.map((item) => (
-            <NavLink key={item.to} to={item.to} className={navClass}>
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-        <ButtonLink to="/match" size="md" className="hidden md:inline-flex">
-          Check a job post
-        </ButtonLink>
-        <button
-          type="button"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((value) => !value)}
-          className="ml-auto flex size-11 items-center justify-center md:hidden"
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
-            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
-          </svg>
-        </button>
-      </div>
-      {open && (
-        <nav id="mobile-menu" aria-label="Main" className="flex flex-col gap-1 border-t border-line px-4 pt-2 pb-4 md:hidden">
-          {NAV.map((item) => (
-            <NavLink key={item.to} to={item.to} className={navClass} onClick={() => setOpen(false)}>
-              {item.label}
-            </NavLink>
-          ))}
-          <ButtonLink to="/match" className="mt-2">
-            Check a job post
-          </ButtonLink>
-        </nav>
-      )}
-    </header>
+    <>
+      <header className="sticky top-0 z-10 border-b border-line bg-paper/95 backdrop-blur">
+        <div className="mx-auto flex max-w-[1200px] items-center gap-7 py-2 pr-3 pl-5 md:px-6">
+          <Wordmark />
+          <nav aria-label="Main" className="hidden flex-1 gap-1 md:flex">
+            {NAV.map((item) => (
+              <NavLink key={item.to} to={item.to} className={navClass}>
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+          {/* Wrapper hides the button on mobile, since ButtonLink sets its own display. */}
+          <div className="hidden md:block">
+            <ButtonLink to="/match" size="md">
+              Check a job post
+            </ButtonLink>
+          </div>
+          <button
+            ref={menuButton}
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen(true)}
+            className="ml-auto flex size-11 items-center justify-center md:hidden"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+              <path d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      {/* Rendered outside the header: its backdrop blur would trap a fixed panel inside it. */}
+      <MobileMenu open={open} onClose={closeMenu} links={NAV} />
+    </>
   )
 }

@@ -18,9 +18,14 @@
   --color-cobalt: #2b4bff;
   --color-cobalt-dark: #1e36c7;
   --color-strong: #157f3d;
+  --color-strong-tint: #e3f1e8;
+  --color-strong-dark: #1e5a37;
   --color-warn: #b85c00;
   --color-warn-dark: #8a4500;
+  --color-warn-tint: #fdebd8;
   --color-missing: #c8281e;
+  --color-missing-tint: #fbe9e7;
+  --color-missing-dark: #8a1c12;
 }
 
 /* Highlighter stroke across the lower half of the text. */
