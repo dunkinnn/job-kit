@@ -14,7 +14,7 @@ async function postJson<T>(path: string, body: unknown, signal?: AbortSignal): P
     })
   } catch (error) {
     if (signal?.aborted) throw error
-    throw new Error('Could not reach Job Kit. Check your internet connection and try again.')
+    throw new Error('Could not reach Job Kit. Check your internet connection and try again.', { cause: error })
   }
 
   const data: unknown = await response.json().catch(() => null)
