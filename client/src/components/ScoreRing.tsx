@@ -4,10 +4,9 @@ type Props = {
   score: number
   size?: number
   stroke?: number
-  showLabel?: boolean
 }
 
-export default function ScoreRing({ score, size = 140, stroke = 10, showLabel = true }: Props) {
+export default function ScoreRing({ score, size = 84, stroke = 7 }: Props) {
   const radius = (size - stroke) / 2
   const circumference = 2 * Math.PI * radius
   const filled = (Math.min(Math.max(score, 0), 100) / 100) * circumference
@@ -23,17 +22,13 @@ export default function ScoreRing({ score, size = 140, stroke = 10, showLabel = 
           fill="none"
           stroke={scoreColor(score)}
           strokeWidth={stroke}
-          strokeLinecap="round"
           strokeDasharray={`${filled} ${circumference}`}
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-medium tracking-[-0.02em]" style={{ fontSize: size * 0.26 }}>
-          {score}%
-        </span>
-        {showLabel && <span className="text-xs text-muted">match</span>}
-      </div>
+      <span className="absolute inset-0 flex items-center justify-center font-medium" style={{ fontSize: size * 0.25 }}>
+        {score}%
+      </span>
     </div>
   )
 }

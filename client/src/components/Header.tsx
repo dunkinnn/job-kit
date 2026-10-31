@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router'
+import { NavLink } from 'react-router'
 import ButtonLink from './ButtonLink.tsx'
+import Wordmark from './Wordmark.tsx'
 
 const NAV = [
   { label: 'Match check', to: '/match' },
@@ -9,20 +10,15 @@ const NAV = [
 ]
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
-  `flex min-h-11 items-center rounded-lg px-3 text-[15px] ${
-    isActive ? 'bg-sage-tint font-medium text-sage' : 'text-ink hover:bg-dim'
-  }`
+  `flex min-h-11 items-center px-3 text-[15px] ${isActive ? 'bg-hl font-medium' : 'hover:bg-desk'}`
 
 export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur">
-      <div className="mx-auto flex max-w-[1200px] items-center gap-6 px-4 py-2 md:px-6">
-        <Link to="/" className="flex items-center gap-2.5 text-[17px] font-medium tracking-[-0.01em] text-ink">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-sage text-xs text-white">JK</span>
-          Job Kit
-        </Link>
+    <header className="sticky top-0 z-10 border-b border-line bg-paper/95 backdrop-blur">
+      <div className="mx-auto flex max-w-[1200px] items-center gap-7 py-2 pr-3 pl-5 md:px-6">
+        <Wordmark />
         <nav aria-label="Main" className="hidden flex-1 gap-1 md:flex">
           {NAV.map((item) => (
             <NavLink key={item.to} to={item.to} className={navClass}>
@@ -30,7 +26,7 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-        <ButtonLink to="/match" variant="dark" size="md" className="hidden md:inline-flex">
+        <ButtonLink to="/match" size="md" className="hidden md:inline-flex">
           Check a job post
         </ButtonLink>
         <button
@@ -39,7 +35,7 @@ export default function Header() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((value) => !value)}
-          className="ml-auto flex size-11 items-center justify-center rounded-[10px] md:hidden"
+          className="ml-auto flex size-11 items-center justify-center md:hidden"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
             {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
