@@ -81,7 +81,7 @@ function ToolCard({ tool }: { tool: Tool }) {
 
 export default function Tools() {
   return (
-    <section className="mx-auto flex max-w-[1240px] flex-col gap-6 px-5 pt-[72px] md:gap-10 md:px-7 md:pt-[140px]">
+    <section id="tools" className="mx-auto flex max-w-[1240px] flex-col gap-6 px-5 pt-[72px] md:gap-10 md:px-7 md:pt-[140px]">
       <div className="flex flex-wrap items-end justify-between gap-5">
         <div className="flex flex-col gap-3 md:gap-3.5">
           <SectionLabel>What you get</SectionLabel>

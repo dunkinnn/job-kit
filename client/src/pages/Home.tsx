@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router'
 import Hero from '../components/home/Hero.tsx'
 import Intro from '../components/home/Intro.tsx'
 import Tools from '../components/home/Tools.tsx'
@@ -7,6 +9,13 @@ import FreshGrads from '../components/home/FreshGrads.tsx'
 import CtaBand from '../components/home/CtaBand.tsx'
 
 export default function Home() {
+  const { hash } = useLocation()
+
+  // Scrolls to the section named in the link, since sections render after the browser checks the hash.
+  useEffect(() => {
+    if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
+  }, [hash])
+
   return (
     <>
       <Hero />

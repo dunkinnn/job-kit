@@ -8,7 +8,7 @@ const POINTS = [
 
 export default function Honest() {
   return (
-    <section className="mx-2 mt-[72px] rounded-[20px] bg-navy text-white md:mx-3 md:mt-[140px] md:rounded-3xl">
+    <section id="honest" className="mx-2 mt-[72px] rounded-[20px] bg-navy text-white md:mx-3 md:mt-[140px] md:rounded-3xl">
       <div className="mx-auto grid max-w-[1240px] gap-4 px-5 pt-12 pb-6 md:grid-cols-2 md:gap-20 md:px-7 md:py-24">
         <div className="flex flex-col gap-3.5 md:gap-[18px]">
           <SectionLabel light>Honest by design</SectionLabel>

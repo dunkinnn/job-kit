@@ -94,3 +94,12 @@ Verified
 - Tool pages: display headlines, rounder cards and inputs, pill tags, navy suggestion card, sky [blanks].
 - Accessibility: giant JOB KIT is decorative (aria-hidden) and the tagline is the h1; hero text sits on a dark fade or dark glass; gray headline words darkened to #7A8AA0 (3.3:1 for large text).
 - Verified: tsc, eslint, build; screenshots at 1440px and 390px with the real fonts, no horizontal scroll, no console errors; full Match to Rewriter flow still works.
+
+## 2026-11-07 - Footer with back to top
+
+- Replaced the plain footer with a navy rounded band: logo, pitch and CTA, Tools and Learn more links, privacy note, copyright, and a faint JOB KIT watermark.
+- Back to top scrolls up (instant when reduced motion is on) and moves focus to the logo.
+- Learn more links go to `/#tools`, `/#honest`, `/#before-after`; Home scrolls to the hash on load since sections render after the browser checks it.
+- Mobile: the two link lists sit side by side; the watermark stays on one line.
+- Canvas: same footer on Desktop Home and Mobile Home; boards resized and the desktop row moved down 800px.
+- Follow-up: the navy footer looked like a second CTA band, so it is now light (desk background, top border, muted text) with no CTA button; Back to top is a white pill with a navy arrow. Canvas updated to match.

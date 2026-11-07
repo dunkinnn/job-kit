@@ -29,7 +29,7 @@ const ROWS = [
 
 export default function BeforeAfter() {
   return (
-    <section className="mx-auto flex max-w-[1240px] flex-col gap-[18px] px-5 pt-[72px] md:gap-9 md:px-7 md:pt-[140px]">
+    <section id="before-after" className="mx-auto flex max-w-[1240px] flex-col gap-[18px] px-5 pt-[72px] md:gap-9 md:px-7 md:pt-[140px]">
       <div className="flex flex-col gap-3 md:gap-3.5">
         <SectionLabel>Before and after</SectionLabel>
         <h2 className="headline text-[28px] leading-[1.06] md:text-[44px] md:leading-[1.05] md:tracking-[-0.01em]">
