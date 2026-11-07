@@ -51,5 +51,5 @@ const onError: ErrorRequestHandler = (err, _req, res, _next) => {
 app.use(onError)
 
 app.listen(port, () => {
-  console.log(`API running on http://localhost:${port}${isMock ? ' (mock AI)' : ''}`)
+  console.log(`API running on http://localhost:${port} (${isMock ? 'mock AI' : `model: ${process.env.OPENAI_MODEL}`})`)
 })
