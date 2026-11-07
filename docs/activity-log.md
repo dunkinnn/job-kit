@@ -103,3 +103,9 @@ Verified
 - Mobile: the two link lists sit side by side; the watermark stays on one line.
 - Canvas: same footer on Desktop Home and Mobile Home; boards resized and the desktop row moved down 800px.
 - Follow-up: the navy footer looked like a second CTA band, so it is now light (desk background, top border, muted text) with no CTA button; Back to top is a white pill with a navy arrow. Canvas updated to match.
+
+## 2026-11-07 - API key hardening
+
+- Audit: key read only by the server from server/.env; never sent to the browser, logged, or committed (no .env in git history).
+- OpenAI API errors (like 401 for a bad key) now become a plain 500 with only the status logged, since OpenAI auth errors echo part of the key.
+- .gitignore also ignores .env.* files (keeps .env.example tracked).

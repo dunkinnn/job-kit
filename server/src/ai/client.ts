@@ -28,6 +28,8 @@ export async function askAI<T extends z.ZodType>(instructions: string, input: st
     if (error instanceof OpenAI.APIError && (error.status === 429 || (error.status ?? 0) >= 500)) {
       throw new AIBusyError('The AI service is busy. Please try again in a minute.')
     }
+    // Logs only the status, since OpenAI auth errors echo part of the key.
+    if (error instanceof OpenAI.APIError) throw new Error(`OpenAI request failed with status ${error.status}`, { cause: error })
     throw error
   }
 }
