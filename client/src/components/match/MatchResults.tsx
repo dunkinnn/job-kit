@@ -12,7 +12,7 @@ type Props = {
   onEdit: () => void
 }
 
-const card = 'flex flex-col gap-3.5 rounded-md border border-line bg-paper p-5 md:p-7'
+const card = 'flex flex-col gap-3.5 rounded-xl border border-line bg-paper p-5 md:p-7'
 const cardTitle = 'text-[17px] font-medium tracking-[-0.01em] md:text-xl'
 
 export default function MatchResults({ result, onNewJob, onEdit }: Props) {
@@ -27,16 +27,16 @@ export default function MatchResults({ result, onNewJob, onEdit }: Props) {
     <div className="flex flex-col gap-6 md:gap-8">
       <div className="flex flex-col gap-3">
         <SectionLabel>Your match</SectionLabel>
-        <h1 ref={heading} tabIndex={-1} className="text-[30px] leading-[1.1] font-medium tracking-[-0.025em] outline-none md:text-[44px]">
+        <h1 ref={heading} tabIndex={-1} className="headline text-[23px] leading-[1.06] outline-none md:text-[34px]">
           {result.jobTitle}
         </h1>
       </div>
 
       <div className="flex flex-wrap items-start gap-4 md:gap-6">
         <aside className="flex min-w-0 flex-[1_1_320px] flex-col gap-3">
-          <section className="flex flex-col items-center gap-4 rounded-md border border-line bg-paper p-6 text-center md:p-8">
+          <section className="flex flex-col items-center gap-4 rounded-xl border border-line bg-paper p-6 text-center md:p-8">
             <ScoreRing score={result.score} size={156} stroke={12} />
-            <span className={`rounded px-3 py-1 text-sm font-medium ${status.className}`}>{status.label}</span>
+            <span className={`rounded-full px-3 py-1 text-sm font-medium ${status.className}`}>{status.label}</span>
             <p className="text-[15px] leading-relaxed text-ink-soft">{result.summary}</p>
           </section>
           {result.weakBullets.length > 0 && (
@@ -84,13 +84,13 @@ export default function MatchResults({ result, onNewJob, onEdit }: Props) {
               ) : (
                 <ul className="flex flex-wrap gap-2">
                   {result.missing.map((skill) => (
-                    <li key={skill} className="flex items-center gap-1.5 rounded border border-line px-3 py-1 text-[15px]">
+                    <li key={skill} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-[15px]">
                       <span className="size-1.5 rounded-full bg-missing" aria-hidden="true" />
                       {skill}
                     </li>
                   ))}
                   {result.partial.map((skill) => (
-                    <li key={skill} className="flex items-center gap-1.5 rounded border border-line px-3 py-1 text-[15px]">
+                    <li key={skill} className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-[15px]">
                       <span className="size-1.5 rounded-full bg-warn" aria-hidden="true" />
                       {skill} <span className="text-muted">(partly shown)</span>
                     </li>
@@ -119,7 +119,7 @@ export default function MatchResults({ result, onNewJob, onEdit }: Props) {
               <ul className="flex flex-col gap-2.5">
                 {result.weakBullets.map((bullet) => (
                   <li key={bullet} className="text-[15px] leading-relaxed">
-                    <span className="underline decoration-cobalt decoration-wavy underline-offset-4">{bullet}</span>
+                    <span className="underline decoration-sky-500 decoration-wavy underline-offset-4">{bullet}</span>
                   </li>
                 ))}
               </ul>

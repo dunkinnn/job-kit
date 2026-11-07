@@ -34,14 +34,14 @@ export default function BulletInput({ onStart }: Props) {
     <form onSubmit={handleSubmit} noValidate className="flex max-w-[760px] flex-col gap-6 md:gap-8">
       <div className="flex flex-col gap-3">
         <SectionLabel>Bullet rewriter</SectionLabel>
-        <h1 className="text-[30px] leading-[1.1] font-medium tracking-[-0.025em] md:text-[44px]">Make your bullets stronger</h1>
+        <h1 className="headline text-[23px] leading-[1.06] md:text-[34px]">Make your bullets stronger</h1>
         <p className="text-[15px] leading-relaxed text-ink-soft md:text-[17px]">
           Paste up to 5 bullet points from your resume. We ask a few questions, then suggest a stronger version using only
           what you tell us.
         </p>
       </div>
 
-      <div className="flex flex-col gap-5 rounded-md border border-line bg-paper p-4 md:p-6">
+      <div className="flex flex-col gap-5 rounded-xl border border-line bg-paper p-4 md:p-6">
         <div className="flex flex-col gap-2.5">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <label htmlFor="bullets" className="text-base font-medium md:text-[17px]">
@@ -60,9 +60,9 @@ export default function BulletInput({ onStart }: Props) {
             }}
             aria-describedby="bullets-hint bullets-count"
             placeholder={'Made a website for our capstone\nAssisted in the IT office during OJT'}
-            className="h-[180px] resize-y rounded-md border border-line bg-desk p-3.5 text-[15px] leading-relaxed placeholder:text-muted focus:border-cobalt focus:outline-2 focus:outline-cobalt/20 md:p-4"
+            className="h-[180px] resize-y rounded-xl border border-line bg-desk p-3.5 text-[15px] leading-relaxed placeholder:text-muted focus:border-accent focus:outline-2 focus:outline-accent/20 md:p-4"
           />
-          <span id="bullets-count" className={`self-end font-mono text-xs ${bullets.length > MAX_BULLETS ? 'text-missing' : 'text-muted'}`}>
+          <span id="bullets-count" className={`self-end text-xs tabular-nums ${bullets.length > MAX_BULLETS ? 'text-missing' : 'text-muted'}`}>
             {bullets.length} of {MAX_BULLETS} bullets
           </span>
         </div>
@@ -76,13 +76,13 @@ export default function BulletInput({ onStart }: Props) {
             maxLength={80}
             onChange={(event) => setJobTitle(event.target.value)}
             placeholder="Junior Web Developer"
-            className="h-12 rounded-md border border-line bg-desk px-3.5 text-[15px] placeholder:text-muted focus:border-cobalt focus:outline-2 focus:outline-cobalt/20"
+            className="h-12 rounded-xl border border-line bg-desk px-3.5 text-[15px] placeholder:text-muted focus:border-accent focus:outline-2 focus:outline-accent/20"
           />
         </div>
       </div>
 
       {error && (
-        <p role="alert" className="rounded-md border border-missing/30 bg-missing-tint px-4 py-3 text-[15px] text-missing-dark">
+        <p role="alert" className="rounded-xl border border-missing/30 bg-missing-tint px-4 py-3 text-[15px] text-missing-dark">
           {error}
         </p>
       )}

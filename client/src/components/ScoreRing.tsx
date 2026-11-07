@@ -26,7 +26,7 @@ export default function ScoreRing({ score, size = 84, stroke = 7 }: Props) {
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </svg>
-      <span className="absolute inset-0 flex items-center justify-center font-medium" style={{ fontSize: size * 0.25 }}>
+      <span className="headline absolute inset-0 flex items-center justify-center" style={{ fontSize: size * 0.22 }}>
         {score}%
       </span>
     </div>

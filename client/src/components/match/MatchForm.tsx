@@ -47,7 +47,7 @@ export default function MatchForm({ jobPost, resume, onJobPostChange, onResumeCh
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6 md:gap-8">
       <div className="flex flex-col gap-3">
         <SectionLabel>Match check</SectionLabel>
-        <h1 className="text-[30px] leading-[1.1] font-medium tracking-[-0.025em] md:text-[44px]">Paste the job and your resume</h1>
+        <h1 className="headline text-[23px] leading-[1.06] md:text-[34px]">Paste the job and your resume</h1>
         <p className="text-[15px] text-ink-soft md:text-[17px]">
           We compare them against what recruiters look for. It takes under a minute.
         </p>
@@ -75,14 +75,14 @@ export default function MatchForm({ jobPost, resume, onJobPostChange, onResumeCh
       </div>
 
       {error && (
-        <p role="alert" className="rounded-md border border-missing/30 bg-missing-tint px-4 py-3 text-[15px] text-missing-dark">
+        <p role="alert" className="rounded-xl border border-missing/30 bg-missing-tint px-4 py-3 text-[15px] text-missing-dark">
           {error}
         </p>
       )}
 
       <div className="flex flex-col-reverse gap-4 md:flex-row md:items-center md:justify-between">
         <p className="flex items-start gap-2.5 text-[13px] leading-normal text-muted md:text-sm">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-cobalt)" strokeWidth="1.75" aria-hidden="true" className="mt-px shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.75" aria-hidden="true" className="mt-px shrink-0">
             <rect x="5" y="11" width="14" height="10" rx="2" />
             <path d="M8 11V7a4 4 0 0 1 8 0v4" />
           </svg>

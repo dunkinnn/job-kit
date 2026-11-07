@@ -84,14 +84,14 @@ export default function MobileMenu({ open, onClose, links }: Props) {
             to={link.to}
             onClick={onClose}
             style={stagger(open, index)}
-            className={`flex items-baseline gap-4 border-b border-line py-5 text-[28px] leading-tight font-medium tracking-[-0.02em] transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none ${
+            className={`headline flex items-baseline gap-4 border-b border-line py-5 text-[21px] leading-tight transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none ${
               open ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
             }`}
           >
             {({ isActive }) => (
               <>
-                <span className="font-mono text-xs tracking-[0.04em] text-muted">0{index + 1}</span>
-                <span className={isActive ? 'bg-hl px-1' : ''}>{link.label}</span>
+                <span className="text-xs font-medium text-muted tabular-nums">0{index + 1}</span>
+                <span className={isActive ? 'rounded-md bg-sky-200 px-2' : ''}>{link.label}</span>
               </>
             )}
           </NavLink>
@@ -103,11 +103,11 @@ export default function MobileMenu({ open, onClose, links }: Props) {
           open ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         }`}
       >
-        <ButtonLink to="/match" className="w-full">
+        <ButtonLink to="/match" arrow className="w-full">
           Check a job post
         </ButtonLink>
-        <span className="text-center font-mono text-[11px] tracking-[0.04em] text-muted">
-          FREE · NO SIGN-UP · RESUME NOT STORED
+        <span className="text-center text-xs text-muted">
+          Free · No sign-up · Resume not stored
         </span>
       </div>
     </div>

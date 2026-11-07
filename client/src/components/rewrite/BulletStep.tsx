@@ -66,7 +66,7 @@ export default function BulletStep({ bullet, jobTitle, position, total, onDone }
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex flex-col gap-3">
           <SectionLabel>Bullet rewriter</SectionLabel>
-          <h1 ref={heading} tabIndex={-1} className="text-[30px] leading-[1.1] font-medium tracking-[-0.025em] outline-none md:text-[44px]">
+          <h1 ref={heading} tabIndex={-1} className="headline text-[23px] leading-[1.06] outline-none md:text-[34px]">
             Make this bullet stronger
           </h1>
         </div>
@@ -74,7 +74,7 @@ export default function BulletStep({ bullet, jobTitle, position, total, onDone }
           {total > 1 && (
             <div className="flex items-center gap-1.5">
               {Array.from({ length: total }, (_, index) => (
-                <span key={index} aria-hidden="true" className={`h-1.5 w-6 rounded-full md:w-8 ${index <= position ? 'bg-cobalt' : 'bg-line'}`} />
+                <span key={index} aria-hidden="true" className={`h-1.5 w-6 rounded-full md:w-8 ${index <= position ? 'bg-accent' : 'bg-line'}`} />
               ))}
               <span className="pl-1.5 text-sm text-muted">
                 {position + 1} of {total}
@@ -88,10 +88,10 @@ export default function BulletStep({ bullet, jobTitle, position, total, onDone }
       </div>
 
       <div className="flex flex-wrap items-start gap-4 md:gap-6">
-        <form onSubmit={handleWrite} noValidate className="flex min-w-0 flex-[1_1_460px] flex-col gap-5 rounded-md border border-line bg-paper p-5 md:gap-6 md:p-7">
+        <form onSubmit={handleWrite} noValidate className="flex min-w-0 flex-[1_1_460px] flex-col gap-5 rounded-xl border border-line bg-paper p-5 md:gap-6 md:p-7">
           <div className="flex flex-col gap-2">
             <span className="text-sm text-muted">Your bullet</span>
-            <p className="text-[17px] leading-normal text-muted line-through decoration-[#b5b3ac]">{bullet}</p>
+            <p className="text-[17px] leading-normal text-muted line-through decoration-quiet">{bullet}</p>
             {questions && <p className="text-sm text-ink-soft">{questions.whyWeak}</p>}
           </div>
           <hr className="border-line" />
@@ -101,7 +101,7 @@ export default function BulletStep({ bullet, jobTitle, position, total, onDone }
             <div role="status" className="flex flex-col gap-4">
               <span className="text-sm text-muted">Reading your bullet...</span>
               {[0, 1, 2].map((item) => (
-                <span key={item} aria-hidden="true" className="h-12 animate-pulse rounded-md bg-desk motion-reduce:animate-none" />
+                <span key={item} aria-hidden="true" className="h-12 animate-pulse rounded-xl bg-desk motion-reduce:animate-none" />
               ))}
             </div>
           )}
@@ -128,7 +128,7 @@ export default function BulletStep({ bullet, jobTitle, position, total, onDone }
                   disabled={writing}
                   onChange={(event) => setAnswers((current) => current.map((value, at) => (at === index ? event.target.value : value)))}
                   aria-describedby={item.kind === 'number' ? `answer-${index}-hint` : undefined}
-                  className="h-12 rounded-md border border-line bg-desk px-3.5 text-[15px] focus:border-cobalt focus:outline-2 focus:outline-cobalt/20 disabled:opacity-70"
+                  className="h-12 rounded-xl border border-line bg-desk px-3.5 text-[15px] focus:border-accent focus:outline-2 focus:outline-accent/20 disabled:opacity-70"
                 />
                 {item.kind === 'number' && (
                   <span id={`answer-${index}-hint`} className="text-[13px] text-muted">
@@ -155,7 +155,7 @@ export default function BulletStep({ bullet, jobTitle, position, total, onDone }
           {result ? (
             <SuggestionCard key={result.suggestion} result={result} onUse={onDone} />
           ) : (
-            <div className="rounded-md border border-dashed border-[#c9c7c0] p-6 text-[15px] leading-relaxed text-muted md:p-8">
+            <div className="rounded-xl border border-dashed border-line-strong p-6 text-[15px] leading-relaxed text-muted md:p-8">
               Your stronger bullet will show up here. Answer what you can. You can skip any question.
             </div>
           )}

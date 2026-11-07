@@ -4,7 +4,7 @@ export default function WithBlanks({ text, onDark = false }: { text: string; onD
     <>
       {text.split(/(\[[^\]]+\])/).map((part, index) =>
         /^\[[^\]]+\]$/.test(part) ? (
-          <span key={index} className={`font-mono text-[0.9em] ${onDark ? 'rounded bg-white/15 px-1' : 'text-cobalt'}`}>
+          <span key={index} className={`rounded-md px-1.5 ${onDark ? 'bg-white/15' : 'bg-sky-100 text-accent'}`}>
             {part}
           </span>
         ) : (

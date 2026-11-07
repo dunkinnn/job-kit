@@ -81,3 +81,16 @@ Verified
 - Number check cases: 150+ kept or blanked, 1,200 vs 1200, "two weeks" vs 2, invented "3-month" blanked.
 - Client tsc, eslint, build; browser flow at 1440px and 390px: validation, two bullets, edit, use, summary copy all (clipboard checked), Match results to rewriter with history cleared. No console errors.
 - Not yet tested: real OpenAI calls (needs your key).
+
+## 2026-11-07: Skyline redesign
+
+- Replaced the Highlighter look with Skyline: sky-to-navy palette, Archivo Expanded ExtraBold uppercase headlines, Manrope body text, pill buttons.
+- Fonts: Google Fonts link now loads Archivo (wdth 125, weight 800) and Manrope; Plex Sans, Plex Mono, and Caveat removed.
+- Tokens renamed in `index.css`: cobalt to accent (navy), hl to sky-200; new quiet, line-strong, sky-100 to sky-500; utilities `headline`, `bg-skyline`, `bg-navy`, `bg-dusk`.
+- `ButtonLink`: new `arrow` prop (round arrow icon) and `light` variant; `buttonClass` is now pill shaped.
+- `Header`: floats over the hero on the homepage (white logo, dark glass nav pill); sticky white bar elsewhere with a sky active pill.
+- New `ArrowIcon`; `Wordmark` is now an icon plus JOB KIT in the display font; `Mark` is a sky tint only; `SectionLabel` is sentence case.
+- Homepage rebuilt: Hero with Skyline (product screens as buildings), Intro (statement and true-fact stats), Tools, Honest (navy numbered list), BeforeAfter, FreshGrads, CtaBand. Removed Steps and MarkedResume.
+- Tool pages: display headlines, rounder cards and inputs, pill tags, navy suggestion card, sky [blanks].
+- Accessibility: giant JOB KIT is decorative (aria-hidden) and the tagline is the h1; hero text sits on a dark fade or dark glass; gray headline words darkened to #7A8AA0 (3.3:1 for large text).
+- Verified: tsc, eslint, build; screenshots at 1440px and 390px with the real fonts, no horizontal scroll, no console errors; full Match to Rewriter flow still works.

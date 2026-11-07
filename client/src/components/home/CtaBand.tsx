@@ -2,17 +2,17 @@ import ButtonLink from '../ButtonLink.tsx'
 
 export default function CtaBand() {
   return (
-    <section className="bg-hl">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-3.5 px-5 py-11 md:flex-row md:flex-wrap md:items-end md:justify-between md:gap-7 md:px-6 md:py-[72px]">
-        <div className="flex min-w-0 flex-col gap-3 md:flex-[1_1_520px]">
-          <h2 className="text-[32px] leading-[1.08] font-medium tracking-[-0.03em] md:text-5xl md:leading-[1.05]">
-            Got a job post open in another tab?
-          </h2>
-          <p className="text-base text-ink-soft md:text-lg">Paste it in and see your match in about a minute.</p>
+    <section className="mx-2 rounded-[20px] bg-dusk text-white md:mx-3 md:rounded-3xl">
+      <div className="mx-auto flex max-w-[1240px] flex-col gap-[18px] px-5 pt-12 pb-6 md:gap-9 md:px-7 md:pt-24 md:pb-[88px]">
+        <h2 className="headline text-[38px] leading-[0.95] md:text-[clamp(44px,8.2vw,120px)] md:leading-[0.92] md:tracking-[-0.02em]">
+          Got a job post open?
+        </h2>
+        <div className="flex flex-col gap-[18px] md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-6">
+          <p className="text-[15px] text-desk md:text-lg">Paste it in and see your match in under a minute.</p>
+          <ButtonLink to="/match" variant="light" arrow className="w-full md:w-auto">
+            Check a job post
+          </ButtonLink>
         </div>
-        <ButtonLink to="/match" variant="dark">
-          Check a job post
-        </ButtonLink>
       </div>
     </section>
   )

@@ -18,7 +18,7 @@ export default function RewriteSummary({ originals, finals, onRestart }: Props) 
     <div className="flex flex-col gap-6 md:gap-8">
       <div className="flex flex-col gap-3">
         <SectionLabel>Bullet rewriter</SectionLabel>
-        <h1 ref={heading} tabIndex={-1} className="text-[30px] leading-[1.1] font-medium tracking-[-0.025em] outline-none md:text-[44px]">
+        <h1 ref={heading} tabIndex={-1} className="headline text-[23px] leading-[1.06] outline-none md:text-[34px]">
           Your stronger bullets
         </h1>
         <p className="text-[15px] text-ink-soft md:text-[17px]">
@@ -26,7 +26,7 @@ export default function RewriteSummary({ originals, finals, onRestart }: Props) 
         </p>
       </div>
 
-      <ul className="rounded-md border border-line bg-paper">
+      <ul className="rounded-xl border border-line bg-paper">
         {finals.map((text, index) => (
           <li key={index} className="flex flex-col gap-3 border-b border-line p-5 last:border-b-0 md:flex-row md:items-center md:gap-8 md:px-7 md:py-6">
             <div className="flex min-w-0 flex-1 flex-col gap-1.5">

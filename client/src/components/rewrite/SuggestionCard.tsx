@@ -11,8 +11,8 @@ export default function SuggestionCard({ result, onUse }: Props) {
 
   return (
     <div className="flex flex-col gap-3">
-      <section aria-live="polite" className="flex flex-col gap-4 rounded-md bg-cobalt p-6 text-white md:p-8">
-        <span className="text-sm text-[#dce2ff]">Suggested bullet</span>
+      <section aria-live="polite" className="flex flex-col gap-4 rounded-2xl bg-navy p-6 text-white md:p-8">
+        <span className="text-sm text-sky-200">Suggested bullet</span>
         {editing ? (
           <>
             <label htmlFor="suggestion-edit" className="sr-only">
@@ -22,7 +22,7 @@ export default function SuggestionCard({ result, onUse }: Props) {
               id="suggestion-edit"
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
-              className="h-32 resize-y rounded-md bg-paper p-3.5 text-[17px] leading-relaxed text-ink focus:outline-2 focus:outline-white"
+              className="h-32 resize-y rounded-xl bg-paper p-3.5 text-[17px] leading-relaxed text-ink focus:outline-2 focus:outline-white"
             />
           </>
         ) : (
@@ -30,7 +30,7 @@ export default function SuggestionCard({ result, onUse }: Props) {
             <WithBlanks text={draft} onDark />
           </p>
         )}
-        <span className="text-[13px] text-[#dce2ff]">Uses only what you told us.</span>
+        <span className="text-[13px] text-sky-200">Uses only what you told us.</span>
         {result.removedNumbers && (
           <p className="rounded bg-white/10 px-3 py-2 text-[13px] leading-normal">
             We took out a number you didn't give us. Fill in the [number] yourself, or answer the question and write it again.

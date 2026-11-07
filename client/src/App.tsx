@@ -7,7 +7,7 @@ import Rewriter from './pages/Rewriter.tsx'
 
 function App() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
         <Routes>

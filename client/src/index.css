@@ -1,22 +1,27 @@
 @import 'tailwindcss';
 
-/* Highlighter design tokens from the plan doc. */
+/* Skyline design tokens from the plan doc. */
 @theme {
-  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --font-hand: 'Caveat', cursive;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Archivo', system-ui, sans-serif;
   --color-paper: #ffffff;
-  --color-desk: #f7f7f4;
-  --color-panel: #f2f2ee;
-  --color-faint: #ededea;
-  --color-ink: #141414;
-  --color-ink-soft: #3a3a37;
-  --color-muted: #5e5e5a;
-  --color-line: #e4e4e0;
-  --color-hl: #ffe45c;
-  --color-hl-soft: #fff3a3;
-  --color-cobalt: #2b4bff;
-  --color-cobalt-dark: #1e36c7;
+  --color-desk: #f4f7fb;
+  --color-panel: #e9eff6;
+  --color-faint: #e3e9f1;
+  --color-ink: #0f1b2d;
+  --color-ink-soft: #3b4656;
+  --color-muted: #5b6675;
+  --color-quiet: #7a8aa0;
+  --color-line: #dde4ec;
+  --color-line-strong: #c9d6e5;
+  --color-sky-100: #dceaf8;
+  --color-sky-200: #cfe2f6;
+  --color-sky-300: #9cc3ec;
+  --color-sky-400: #86b5e4;
+  --color-sky-500: #4f86c6;
+  --color-accent: #1f3d66;
+  --color-accent-light: #2c5383;
+  --color-accent-dark: #142b4a;
   --color-strong: #157f3d;
   --color-strong-tint: #e3f1e8;
   --color-strong-dark: #1e5a37;
@@ -28,10 +33,25 @@
   --color-missing-dark: #8a1c12;
 }
 
-/* Highlighter stroke across the lower half of the text. */
-@utility marker {
-  background: linear-gradient(transparent 56%, var(--color-hl) 56%, var(--color-hl) 94%, transparent 94%);
-  box-decoration-break: clone;
+/* Wide uppercase type for headlines and big numbers. */
+@utility headline {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Sky-to-navy backgrounds for the hero, the navy band, and the closing band. */
+@utility bg-skyline {
+  background: linear-gradient(180deg, #a9cdf0 0%, #86b5e4 36%, #5486bf 68%, #23466f 100%);
+}
+
+@utility bg-navy {
+  background: linear-gradient(135deg, #2c5383 0%, #1f3d66 45%, #142b4a 100%);
+}
+
+@utility bg-dusk {
+  background: linear-gradient(180deg, #86b5e4 0%, #4f86c6 50%, #1f3d66 100%);
 }
 
 html {
@@ -39,5 +59,5 @@ html {
 }
 
 body {
-  @apply bg-paper font-sans text-ink antialiased;
+  @apply bg-desk font-sans text-ink antialiased;
 }
